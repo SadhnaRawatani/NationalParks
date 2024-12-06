@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>National Parks - Home</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link href="img/icon/favicon.png" rel="icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500family=Quicksand:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/ticketModal.css">
+
+  <style>
+    @media (max-width: 578px) {
+      .trip-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+    <div class="row gx-0 d-none d-lg-flex">
+      <div class="col-lg-7 px-5 text-start">
+        <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+          <small class="fa fa-map-marker-alt text-primary me-2"></small>
+          <small>Aptech metro star gate center, karachi</small>
+        </div>
+      </div>
+      <div class="col-lg-5 px-5 text-end">
+        <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+          <small class="fa fa-phone-alt text-primary me-2"></small>
+          <small>+92 3102000935</small>
+        </div>
+        <div class="h-100 d-inline-flex align-items-center">
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/"><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.twitter.com/"><i
+              class="fab fa-twitter"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
+    data-wow-delay="0.1s">
+
+    <a href="index.html"><img src="img/icon/logo-1.png" alt="logoimg" height="90px"></a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
+      <div class="navbar-nav ms-auto">
+        <a href="./index.html" class="nav-item nav-link active">Home</a>
+        <a href="./about.html" class="nav-item nav-link">About</a>
+        <a href="./parks.html" class="nav-item nav-link">Parks</a>
+        <a href="./animal.html" class="nav-item nav-link">Animals</a>
+        <a href="./contact.html" class="nav-item nav-link">Contact</a>
+      </div>
+      <a href="" class="btn btn-primary " id="Ticket" data-bs-toggle="modal" data-bs-target="#uniqueBuyTicketModal">Buy Ticket<i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+    <!-- Ticket Purchase Modal -->
+    <div class="modal fade" id="uniqueBuyTicketModal" tabindex="-1" aria-labelledby="uniqueBuyTicketModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content unique-modal-content">
+          <div class="modal-header unique-modal-header">
+            <h5 class="modal-title" id="uniqueBuyTicketModalLabel">Buy Your Ticket</h5>
+            <button type="button" class="btn-close unique-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body unique-modal-body">
+            <form id="uniqueTicketForm">
+              <div class="mb-3 unique-form-group">
+                <label for="uniqueFullName" class="form-label unique-form-label">Full Name</label>
+                <input type="text" class="form-control unique-input-fullname" id="uniqueFullName" placeholder="Enter your full name" required>
+                <div id="uniqueFullNameError" class="unique-error-message"></div>
+              </div>
+              <div class="mb-3 unique-form-group">
+                <label for="uniqueEmail" class="form-label unique-form-label">Email Address</label>
+                <input type="email" class="form-control unique-input-email" id="uniqueEmail" placeholder="Enter your email" required>
+                <div id="uniqueEmailError" class="unique-error-message"></div>
+              </div>
+              <div class="mb-3 unique-form-group">
+                <label for="uniqueTicketType" class="form-label unique-form-label">Ticket Type</label>
+                <select class="form-select unique-select-tickettype" id="uniqueTicketType" required>
+                  <option value="" disabled selected>Select Ticket Type</option>
+                  <option value="1000">Ayubia National Park - Rs1000</option>
+                  <option value="1500">Chitral National Park - Rs1500</option>
+                  <option value="2000">Deosai National Park - Rs2000</option>
+                  <option value="1200">Hingol National Park - Rs1200</option>
+                  <option value="1100">Kishtwar National Park - Rs1100</option>
+                  <option value="2200">Nelson Lakes National Park - Rs2200</option>
+                  <option value="900">Silent Valley National Park - Rs900</option>
+                  <option value="800">Margalla Hills National Park - Rs800</option>
+                  <option value="2500">Yellowstone National Park - Rs2500</option>
+                  <option value="1800">Kirthar National Park - Rs1800</option>
+                </select>
+              </div>
+              <div class="mb-3 unique-form-group">
+                <label for="uniqueTicketQuantity" class="form-label unique-form-label">Quantity</label>
+                <input type="number" class="form-control unique-input-quantity" id="uniqueTicketQuantity" min="1" value="1" required>
+              </div>
+              <div class="mb-3 unique-form-group">
+                <p class="unique-total-cost">Total Cost: Rs <span id="uniqueTotalCost">0</span></p>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer unique-modal-footer">
+            <button type="button" class="btn btn-secondary unique-btn-close-modal" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary unique-btn-submit" id="uniqueSubmitTicketForm">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="uniqueConfirmationModal" tabindex="-1" aria-labelledby="uniqueConfirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content unique-confirmation-content">
+          <div class="modal-header unique-confirmation-header">
+            <h5 class="modal-title" id="uniqueConfirmationModalLabel">Confirm Your Ticket</h5>
+            <button type="button" class="btn-close unique-btn-close-confirmation" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body unique-confirmation-body">
+            <div id="uniqueConfirmationDetails"></div>
+            <p>Are you sure you want to purchase this ticket?</p>
+          </div>
+          <div class="modal-footer unique-confirmation-footer">
+            <button type="button" class="btn btn-secondary unique-btn-cancel-confirmation" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary unique-btn-confirm" id="uniqueConfirmPurchase">Yes, Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Success Message -->
+    <div class="unique-success-message unique-hidden" id="uniqueSuccessMessage">
+      <i class="fas fa-check-circle unique-success-icon"></i>
+      <p>Your ticket has been successfully purchased!</p>
+    </div>
+
+  <div class="container-fluid bg-dark p-0 mb-5">
+    <div class="row g-0 flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="header-bg h-100 d-flex flex-column justify-content-center p-5">
+          <h1 class="text-light mb-5">
+            Discover the Wonders of Nature at National Parks
+          </h1>
+          <div class="d-flex align-items-center pt-4 animated slideInDown">
+            <button type="button" class="btn-play" data-bs-toggle="modal"
+              data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+              <span></span>
+            </button>
+            <h6 class="text-white m-0 ms-4 d-none d-sm-block">Watch Video</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+        <div class="owl-carousel header-carousel">
+          <div class="owl-carousel-item">
+            <img class="img-fluid" src="img/carousel-1image.jpg" alt="" />
+          </div>
+          <div class="owl-carousel-item">
+            <img class="img-fluid" src="img/carousel-2image.jpg" alt="" />
+          </div>
+          <div class="owl-carousel-item">
+            <img class="img-fluid" src="img/carousel-3image.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header End -->
+
+  <!-- Video Modal Start -->
+  <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-0">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">National Parks</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/q2_c2_WfJFg?si=hHJC4pr7MU3iAYJm"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Video Modal End -->
+
+  <!-- About Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <p><span class="text-primary me-2">#</span>Welcome To National Parks</p>
+          <h1 class="display-5 mb-4">
+            Why You Should Visit
+            <span class="text-primary">National</span> Parks!
+          </h1>
+          <p class="mb-4">
+            Discover the serenity of nature in National parks, where beauty and tranquility meet. Escape the daily grind
+            and immerse yourself in peaceful surroundings, perfect for relaxation and rejuvenation. Whether you’re
+            looking for a quiet moment under the trees or a scenic spot to connect with loved ones, our parks offer a
+            sanctuary for everyone.
+          </p>
+
+          <h5 class="mb-3">
+            <i class="far fa-check-circle text-primary me-3"></i>Natural
+            Environment
+          </h5>
+          <h5 class="mb-3">
+            <i class="far fa-check-circle text-primary me-3"></i>Professional
+            Guide & Security
+          </h5>
+          <h5 class="mb-3">
+            <i class="far fa-check-circle text-primary me-3"></i>World Best
+            Animals
+          </h5>
+          <a class="btn btn-primary py-3 px-5 mt-3" href="./animal.html">Read More</a>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="img-border">
+            <img class="img-fluid" src="img/about.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- About End -->
+
+
+
+  <!-- Static Cards -->
+
+  <div class="container-xxl">
+    <div class="container">
+      <div class="row g-5 mb-5 align-items-end wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-6 mb-2  wow fadeInUp">
+          <p><span class="text-primary me-2">#</span>National Parks</p>
+          <h1 class="display-4 mb-0">
+            Let`s See National
+            <span class="text-primary">Parks</span>
+          </h1>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <a class="btn btn-primary py-3 px-5" href="./parks.html">Explore More Parks</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-11 col-lg-12 mb-4 d-flex justify-content-center  wow fadeInUp">
+
+        <div class="trip-card">
+          <img src="./img/cardimages/Ayubia National Park.jpg" alt="Mountain Adventure">
+          <div class="card-body">
+            <h5 class="card-title fs-3 text-primary">Ayubia National Park</h5>
+            <div class="accessories">
+              <p>Ayubia National Park (Urdu: ایوبیہ ملی باغ), also known as Ayubia (Urdu: ایوبیہ), is a protected area
+                of 3,312 hectares (33 km2) located in Abbottabad District, Khyber Pakhtunkhwa province, Pakistan. Ayubia
+                National Park is surrounded by seven major villages and three small towns of Thandiani, Nathiagali and
+                Khanspur. Currently, it is managed by the Wildlife and Parks Department of Government of Khyber
+                Pakhtunkhwa.</p>
+            </div>
+            <a href="./Ayubia National Park.html" class="btn btn-primary book-btn">Read More</a>
+          </div>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.206060019914!2d73.40365927436348!3d34.064231617099495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfd4c721ec351d%3A0xd635a694188056c8!2sAyubia%20National%20Park!5e0!3m2!1sen!2sau!4v1732261368432!5m2!1sen!2sau"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-11 col-lg-12 mb-4 d-flex justify-content-center  wow fadeInUp data-wow-delay="0.1s">
+        <div class="trip-card">
+          <img src="./img/cardimages/Deosai National Park.jpg" alt="Deosai National Park">
+          <div class="card-body">
+            <h5 class="card-title fs-3 text-primary">Deosai National Park</h5>
+            <div class="accessories">
+              <p>Deosai National Park is a high-altitude alpine plain and national park located between the Skardu District and Astore District in Gilgit-Baltistan, Pakistan. Lying in the east of Nanga Parbat and in the western side of the Himalayas, closer to the central Karakoram Range surrounded by Deosai Mountains, the national park is in the tentative list under World Heritage Site of Pakistan.The Deosai Plains are situated at an average elevation of 4,114 metres (13,497 ft) above sea level.</p>
+            </div>
+            <a href="./Deosai National Park.html" class="btn btn-primary book-btn">Read More</a>
+          </div>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.4451857623594!2d75.46924867441277!3d34.97051206869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e38bb6f78c2f95%3A0x91d536c155585ae!2sDeosai%20National%20Park!5e0!3m2!1sen!2sau!4v1732262080809!5m2!1sen!2sau" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Parks End -->
+
+  <!-- Animal Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="row g-5 mb-5 align-items-end wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-6">
+          <p><span class="text-primary me-2">#</span>World Wild Animals</p>
+          <h1 class="display-4 mb-0">
+            Let`s See World Wild Awsome <span class="text-primary"> Animals</span>
+
+          </h1>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <a class="btn btn-primary py-3 px-5" href="animal.html">Explore More Animals</a>
+        </div>
+      </div>
+
+
+      <div class="row g-lg-2">
+        <div class="card-container row g-lg-2" id="animals-section">
+
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+    <!-- Animal End -->
+      <!-- Team Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" > Our <span class="text-primary">Team!</span>  </h1>
+        <div
+          class="owl-carousel testimonial-carousel wow fadeInUp"
+          data-wow-delay="0.1s"
+        >
+          <div class="testimonial-item text-center">
+            <img
+              class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4"
+              src="img/icon/img_avatar.png"
+              style="width: 100px; height: 100px"
+            />
+            <div class="testimonial-text rounded text-center p-4">
+              <p>
+                <p>
+                  As a Frontend Developer, I specialize in crafting dynamic, responsive, and user-friendly web interfaces that elevate the digital experience. With a strong command of modern web technologies, I seamlessly blend creativity with technical proficiency to transform concepts into visually appealing and high-performing solutions. My passion lies in harmonizing design and functionality, ensuring every project is both visually compelling and user-centric.
+              </p>
+            </p>
+              <h5 class="mb-1">Atiya Zehra</h5>
+              <span class="fst-italic">Frontend Developer</span>
+              <h6>Team leader</h6>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4"
+              src="img/icon/img_avatar.png"
+              style="width: 100px; height: 100px"
+            />
+            <div class="testimonial-text rounded text-center p-4">
+              <p>
+                As a Frontend Developer, my passion is creating clean, dynamic, and responsive web experiences that deliver outstanding user satisfaction. I bring together modern web technologies, creative thinking, and technical expertise to transform designs into intuitive, fast, and seamless digital interfaces. My goal is to craft beautiful and functional websites that provide exceptional user experiences across all devices.
+            </p>
+              <h5 class="mb-1">Mukasifa Waseem</h5>
+              <span class="fst-italic">Frontend Developer</span>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4"
+              src="img/icon/img_avatar.png"
+              style="width: 100px; height: 100px"
+            />
+            <div class="testimonial-text rounded text-center p-4">
+              <p>
+                <p>
+                  As a Frontend Developer, my goal is to create engaging, accessible, and responsive web applications that deliver exceptional user experiences. I leverage cutting-edge web technologies and design principles to build visually polished, intuitive interfaces that prioritize usability and performance. By balancing creativity with technical precision, I bring ideas to life and ensure they are both aesthetically stunning and highly functional.
+              </p>
+              </p>
+              <h5 class="mb-1">Maira Meer</h5>
+              <span class="fst-italic">Frontend Developer</span>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4"
+              src="img/icon/img_avatar.png"
+              style="width: 100px; height: 100px"
+            />
+            <div class="testimonial-text rounded text-center p-4">
+              <p>
+                As a Frontend Developer, my goal is to create engaging, accessible, and responsive web applications that deliver exceptional user experiences. I leverage cutting-edge web technologies and design principles to build visually polished, intuitive interfaces that prioritize usability and performance. By balancing creativity with technical precision, I bring ideas to life and ensure they are both aesthetically stunning and highly functional.
+              </p>
+              <h5 class="mb-1">Rooman Khan</h5>
+              <span class="fst-italic">Frontend Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Team End -->
+
+ <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <p><span class="text-primary me-2">#</span>Contact Us</p>
+        <h1 class="display-5 mb-4">Have Any Query? Please <span class="text-primary"> Contact Us</span>!</h1>
+        <form id="contactForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control bg-light border-0"
+                  id="name"
+                  placeholder="Your Name"
+                />
+                <label for="name">Your Name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control bg-light border-0"
+                  id="email"
+                  placeholder="Your Email"
+                />
+                <label for="email">Your Email</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control bg-light border-0"
+                  id="subject"
+                  placeholder="Subject"
+                />
+                <label for="subject">Subject</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating">
+                <textarea
+                  class="form-control bg-light border-0"
+                  placeholder="Leave a message here"
+                  id="message"
+                  style="height: 100px"
+                ></textarea>
+                <label for="message">Message</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary w-100 py-3" type="submit">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="h-100" style="min-height: 400px">
+          <iframe
+            class="rounded w-100 h-100"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14477.25438915745!2d67.13337081046447!3d24.887282631044076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb339999415e0c3%3A0x36742eee0fd9c291!2sAptech%20Metro%20Star%20Gate!5e0!3m2!1sen!2sbd!4v1732240653720!5m2!1sen!2sbd"
+            frameborder="0"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Contact End -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Thank you for contacting us! We have received your message and will get back to you shortly.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <a href="index.html"><img src="img/icon/LOGO.png" alt="logoimg" height="100px" class="mb-3"></a>
+            <div class="d-flex pt-2">
+              <a class="btn btn-outline-light btn-social" href="https://www.twitter.com/"><i
+                  class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/"><i
+                  class="fab fa-youtube"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/"><i
+                  class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-light mb-4">Quick Links</h5>
+            <a class="btn btn-link" href="index.html">National Parks</a>
+            <a class="btn btn-link" href="about.html">About Us</a>
+            <a class="btn btn-link" href="contact.html">Contact Us</a>
+            <a class="btn btn-link" href="parks.html">Parks</a>
+            <a class="btn btn-link" href="animal.html">Animals</a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-light mb-4">Parks</h5>
+            <a class="btn btn-link" href="./Ayubia National Park.html">Ayubia National Park</a>
+            <a class="btn btn-link" href="./Chitral National Park.html">Chitral National Park</a>
+            <a class="btn btn-link" href="./Deosai National Park.html">Deosai National Park</a>
+            <a class="btn btn-link" href="./Hingol National Park.html">Hingol National Park</a>
+            <a class="btn btn-link" href="./parks.html">Explore More</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-12 text-center text-md-center mb-3 mb-md-0">
+            &copy; <a class="border-bottom" href="./index.html">National Parks</a>, All
+            Right Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+  
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./js/tiketModal.js"></script>
+
+  <script>
+
+    const animals = [
+      {
+        img: "img/animalsimg/animal-1.jpg",
+        alt: "Gray Wolf",
+        title: "Gray Wolf",
+        scientificName: "Canis lupus",
+        habitat: "Forests, wetlands, and coastal regions in North America",
+        diet: "Large mammals like deer, elk, and smaller prey such as rabbits and birds",
+        conservationStatus: "Least Concern",
+        lifespan: "6-8 years in the wild, up to 13 years in captivity",
+        info: "The Gray Wolf is a highly intelligent and social predator known for its pack behavior and vital role in ecosystems.",
+        Longdescription: "Gray Wolves are apex predators, often living in structured packs. They are known for their strong jaws, acute senses, and significant ecological impact as keystone species.",
+        RealtedParks: "Yellowstone National Park, Denali National Park",
+        funFacts: [
+          "A wolf’s howl can travel up to 10 miles in open terrain.",
+          "Gray Wolves can run at speeds of up to 37 mph during a chase."
+        ],
+        downloadLink: "https://www.mediafire.com/file/j9on487tps642u5/GrayWolf.docx/file"
+      },
+      {
+        img: "img/animalsimg/animal-3.jpg",
+        alt: "Dolphin",
+        title: "Dolphin",
+        scientificName: "Tursiops truncatus",
+        habitat: "Oceans and coastal waters worldwide",
+        diet: "Fish, squid, and crustaceans",
+        conservationStatus: "Least Concern",
+        lifespan: "20-60 years in the wild",
+        info: "Dolphins are highly social and intelligent marine mammals, known for their playful nature and advanced communication skills.",
+        Longdescription: "Dolphins live in pods and communicate through clicks, whistles, and body movements. They play a vital role in maintaining marine ecosystems.",
+        RealtedParks: "Everglades National Park, Channel Islands National Park",
+        funFacts: [
+          "Dolphins have been observed teaching hunting techniques to younger pod members.",
+          "They sleep with one half of their brain active to stay alert."
+        ],
+        downloadLink: "https://www.mediafire.com/file/85xwyyed41jfppo/Dolphin.docx/file"
+      },
+      {
+        img: "img/animalsimg/animal-7.jpg",
+        alt: "Golden Jackal",
+        title: "Golden Jackal",
+        scientificName: "Canis aureus",
+        habitat: "Savannas, grasslands, and woodlands in Africa and Asia",
+        diet: "Small mammals, birds, fruits, and carrion",
+        conservationStatus: "Least Concern",
+        lifespan: "10-12 years in the wild",
+        info: "Golden Jackals are highly adaptable canids known for their resourcefulness and social behavior.",
+        Longdescription: "Golden Jackals are opportunistic feeders that thrive in diverse habitats. They are often observed in pairs or small family groups.",
+        RealtedParks: "Bandhavgarh National Park, Serengeti National Park",
+        funFacts: [
+          "Golden Jackals can communicate through over a dozen different vocalizations.",
+          "They are capable of covering long distances while hunting."
+        ],
+        downloadLink: "https://www.mediafire.com/file/9ds05z9bttbuc91/Golden_Jackal.docx/file"
+      },
+      {
+        img: "img/animalsimg/animal-9.jpg",
+        alt: "Snow Leopard",
+        title: "Snow Leopard",
+        scientificName: "Panthera uncia",
+        habitat: "High-altitude mountains in Central and South Asia",
+        diet: "Mountain goats, sheep, and smaller mammals",
+        conservationStatus: "Vulnerable",
+        lifespan: "15-18 years in the wild",
+        info: "Snow Leopards are elusive big cats adapted to survive in harsh mountain environments.",
+        Longdescription: "Snow Leopards, often called 'ghosts of the mountains,' are solitary and territorial animals known for their long, thick tails and dense fur.",
+        RealtedParks: "Hemis National Park, Altai-Sayan Ecoregion",
+        funFacts: [
+          "Snow Leopards can leap as far as 50 feet in a single bound.",
+          "Their thick tails help them balance and provide warmth in cold weather."
+        ],
+        downloadLink: "https://www.mediafire.com/file/ewohgybb3p1na0i/Snow_Leopard.docx/file"
+      },
+    ];
+
+ 
+    function generateCards(filteredAnimals) {
+      const container = document.querySelector("#animals-section");
+      container.innerHTML = "";
+
+      if (filteredAnimals.length === 0) {
+        container.innerHTML = "<p class='text-muted text-center'>No animals found matching your search.</p>";
+        return;
+      }
+
+      filteredAnimals.forEach((animal) => {
+        const card = document.createElement("div");
+        card.className = "col-12 col-md-6 col-lg-6 mb-4 wow fadeInUp";
+        card.innerHTML = `
+      <div class="card shadow-sm border-0">
+        <img src="${animal.img}" alt="${animal.alt}" class="card-img-top">
+        <div class="card-body">
+          <h3 class="card-title">${animal.title}</h3>
+          <p class="card-text">${animal.info}</p>
+     <a href="animal-detail.html?title=${encodeURIComponent(animal.title)}&info=${encodeURIComponent(animal.info)}&img=${encodeURIComponent(animal.img)}&Longdescription=${encodeURIComponent(animal.Longdescription)}&RealtedParks=${encodeURIComponent(animal.RealtedParks)}&scientificName=${encodeURIComponent(animal.scientificName)}&habitat=${encodeURIComponent(animal.habitat)}&diet=${encodeURIComponent(animal.diet)}&conservationStatus=${encodeURIComponent(animal.conservationStatus)}&lifespan=${encodeURIComponent(animal.lifespan)}&funFacts=${encodeURIComponent(JSON.stringify(animal.funFacts))}&downloadLink=${encodeURIComponent(animal.downloadLink)}" class="btn btn-sm btn-outline-secondary">
+  <i class="fas fa-book-reader"></i> Read More
+</a>
+
+
+        </div>
+      </div>
+    `;
+        container.appendChild(card);
+      });
+    }
+
+    generateCards(animals);
+
+
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const nameField = document.getElementById("name");
+      const emailField = document.getElementById("email");
+      const subjectField = document.getElementById("subject");
+      const messageField = document.getElementById("message");
+    
+      // Create and append error messages
+      const nameErrorMessage = document.createElement('div');
+      nameErrorMessage.textContent = "Only letters and spaces are allowed in the name.";
+      nameErrorMessage.classList.add('error-message');
+      nameField.parentElement.appendChild(nameErrorMessage);
+    
+      const emailErrorMessage = document.createElement('div');
+      emailErrorMessage.textContent = "Please provide a valid email address.";
+      emailErrorMessage.classList.add('error-message');
+      emailField.parentElement.appendChild(emailErrorMessage);
+    
+      const subjectErrorMessage = document.createElement('div');
+      subjectErrorMessage.textContent = "Subject should have at least 3 characters.";
+      subjectErrorMessage.classList.add('error-message');
+      subjectField.parentElement.appendChild(subjectErrorMessage);
+    
+      const messageErrorMessage = document.createElement('div');
+      messageErrorMessage.textContent = "Message should have at least 10 words.";
+      messageErrorMessage.classList.add('error-message');
+      messageField.parentElement.appendChild(messageErrorMessage);
+    
+      // Hide error messages by default
+      nameErrorMessage.style.display = 'none';
+      emailErrorMessage.style.display = 'none';
+      subjectErrorMessage.style.display = 'none';
+      messageErrorMessage.style.display = 'none';
+    
+      // Validate Name
+      nameField.addEventListener("input", function () {
+        const nameValue = nameField.value.trim();
+        const namePattern = /^[a-zA-Z\s]+$/;
+        if (!namePattern.test(nameValue)) {
+          nameField.classList.add('invalid-input');
+          nameField.classList.remove('valid-input');
+          nameErrorMessage.style.display = 'block';
+        } else {
+          nameField.classList.remove('invalid-input');
+          nameField.classList.add('valid-input');
+          nameErrorMessage.style.display = 'none';
+        }
+      });
+    
+      // Validate Email
+      emailField.addEventListener("input", function () {
+        const emailValue = emailField.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailValue)) {
+          emailField.classList.add('invalid-input');
+          emailField.classList.remove('valid-input');
+          emailErrorMessage.style.display = 'block';
+        } else {
+          emailField.classList.remove('invalid-input');
+          emailField.classList.add('valid-input');
+          emailErrorMessage.style.display = 'none';
+        }
+      });
+    
+      // Validate Subject
+      subjectField.addEventListener("input", function () {
+        const subjectValue = subjectField.value.trim();
+        if (subjectValue.length < 3) {
+          subjectField.classList.add('invalid-input');
+          subjectField.classList.remove('valid-input');
+          subjectErrorMessage.style.display = 'block';
+        } else {
+          subjectField.classList.remove('invalid-input');
+          subjectField.classList.add('valid-input');
+          subjectErrorMessage.style.display = 'none';
+        }
+      });
+    
+      // Validate Message
+      messageField.addEventListener("input", function () {
+        const messageValue = messageField.value.trim();
+        const wordCount = messageValue.split(/\s+/).filter(word => word.length > 0).length;
+        if (wordCount < 10) {
+          messageField.classList.add('invalid-input');
+          messageField.classList.remove('valid-input');
+          messageErrorMessage.style.display = 'block';
+        } else {
+          messageField.classList.remove('invalid-input');
+          messageField.classList.add('valid-input');
+          messageErrorMessage.style.display = 'none';
+        }
+      });
+    
+      // Form Submission
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault(); 
+    
+        let isValid = true;
+    
+        if (!/^[a-zA-Z\s]+$/.test(nameField.value.trim())) {
+          isValid = false;
+          nameErrorMessage.style.display = 'block';
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+          isValid = false;
+          emailErrorMessage.style.display = 'block';
+        }
+        if (subjectField.value.trim().length < 3) {
+          isValid = false;
+          subjectErrorMessage.style.display = 'block';
+        }
+        if (messageField.value.trim().split(/\s+/).filter(word => word.length > 0).length < 10) {
+          isValid = false;
+          messageErrorMessage.style.display = 'block';
+        }
+    
+        // If form is valid, show the success modal and reset the form
+        if (isValid) {
+          const modal = new bootstrap.Modal(document.getElementById("thankYouModal"));
+          modal.show();
+
+          localStorage.setItem("name", nameField.value);
+      localStorage.setItem("email",emailField.value);
+      localStorage.setItem("subject",subjectField.value);
+
+          document.getElementById("contactForm").reset();
+    
+          // Remove all validation styles
+          nameField.classList.remove('valid-input', 'invalid-input');
+          emailField.classList.remove('valid-input', 'invalid-input');
+          subjectField.classList.remove('valid-input', 'invalid-input');
+          messageField.classList.remove('valid-input', 'invalid-input');
+        }
+      });
+    });
+    </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Deosai National Park</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link href="img/icon/favicon.png" rel="icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500family=Quicksand:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/ticketModal.css">
+  <link rel="stylesheet" href="./assets/css/Parks.css">
+  
+</head>
+
+<body>
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+    <div class="row gx-0 d-none d-lg-flex">
+      <div class="col-lg-7 px-5 text-start">
+        <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+          <small class="fa fa-map-marker-alt text-primary me-2"></small>
+          <small>Aptech metro star gate center, karachi</small>
+        </div>
+      </div>
+      <div class="col-lg-5 px-5 text-end">
+        <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+          <small class="fa fa-phone-alt text-primary me-2"></small>
+          <small>+92 3102000935</small>
+        </div>
+        <div class="h-100 d-inline-flex align-items-center">
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/"><i
+              class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.twitter.com/"><i
+              class="fab fa-twitter"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.instagram.com/"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
+    data-wow-delay="0.1s">
+
+    <a href="index.html"><img src="img/icon/logo-1.png" alt="logoimg" height="90px"></a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
+      <div class="navbar-nav ms-auto">
+        <a href="./index.html" class="nav-item nav-link">Home</a>
+        <a href="./about.html" class="nav-item nav-link">About</a>
+        <a href="./parks.html" class="nav-item nav-link active">Parks</a>
+        <a href="./animal.html" class="nav-item nav-link">Animals</a>
+        <a href="./contact.html" class="nav-item nav-link">Contact</a>
+      </div>
+      <a href="" class="btn btn-primary " id="Ticket" data-bs-toggle="modal" data-bs-target="#uniqueBuyTicketModal">Buy Ticket<i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Ticket Purchase Modal -->
+  <div class="modal fade" id="uniqueBuyTicketModal" tabindex="-1" aria-labelledby="uniqueBuyTicketModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content unique-modal-content">
+        <div class="modal-header unique-modal-header">
+          <h5 class="modal-title" id="uniqueBuyTicketModalLabel">Buy Your Ticket</h5>
+          <button type="button" class="btn-close unique-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body unique-modal-body">
+          <form id="uniqueTicketForm">
+            <div class="mb-3 unique-form-group">
+              <label for="uniqueFullName" class="form-label unique-form-label">Full Name</label>
+              <input type="text" class="form-control unique-input-fullname" id="uniqueFullName" placeholder="Enter your full name" required>
+              <div id="uniqueFullNameError" class="unique-error-message"></div>
+            </div>
+            <div class="mb-3 unique-form-group">
+              <label for="uniqueEmail" class="form-label unique-form-label">Email Address</label>
+              <input type="email" class="form-control unique-input-email" id="uniqueEmail" placeholder="Enter your email" required>
+              <div id="uniqueEmailError" class="unique-error-message"></div>
+            </div>
+            <div class="mb-3 unique-form-group">
+              <label for="uniqueTicketType" class="form-label unique-form-label">Ticket Type</label>
+              <select class="form-select unique-select-tickettype" id="uniqueTicketType" required>
+                <option value="" disabled selected>Select Ticket Type</option>
+                <option value="1000">Ayubia National Park - Rs1000</option>
+                <option value="1500">Chitral National Park - Rs1500</option>
+                <option value="2000">Deosai National Park - Rs2000</option>
+                <option value="1200">Hingol National Park - Rs1200</option>
+                <option value="1100">Kishtwar National Park - Rs1100</option>
+                <option value="2200">Nelson Lakes National Park - Rs2200</option>
+                <option value="900">Silent Valley National Park - Rs900</option>
+                <option value="800">Margalla Hills National Park - Rs800</option>
+                <option value="2500">Yellowstone National Park - Rs2500</option>
+                <option value="1800">Kirthar National Park - Rs1800</option>
+              </select>
+            </div>
+            <div class="mb-3 unique-form-group">
+              <label for="uniqueTicketQuantity" class="form-label unique-form-label">Quantity</label>
+              <input type="number" class="form-control unique-input-quantity" id="uniqueTicketQuantity" min="1" value="1" required>
+            </div>
+            <div class="mb-3 unique-form-group">
+              <p class="unique-total-cost">Total Cost: Rs <span id="uniqueTotalCost">0</span></p>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer unique-modal-footer">
+          <button type="button" class="btn btn-secondary unique-btn-close-modal" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary unique-btn-submit" id="uniqueSubmitTicketForm">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="uniqueConfirmationModal" tabindex="-1" aria-labelledby="uniqueConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content unique-confirmation-content">
+        <div class="modal-header unique-confirmation-header">
+          <h5 class="modal-title" id="uniqueConfirmationModalLabel">Confirm Your Ticket</h5>
+          <button type="button" class="btn-close unique-btn-close-confirmation" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body unique-confirmation-body">
+          <div id="uniqueConfirmationDetails"></div>
+          <p>Are you sure you want to purchase this ticket?</p>
+        </div>
+        <div class="modal-footer unique-confirmation-footer">
+          <button type="button" class="btn btn-secondary unique-btn-cancel-confirmation" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary unique-btn-confirm" id="uniqueConfirmPurchase">Yes, Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="unique-success-message unique-hidden" id="uniqueSuccessMessage">
+    <i class="fas fa-check-circle unique-success-icon"></i>
+    <p>Your ticket has been successfully purchased!</p>
+  </div>
+
+   
+    <div class="container-fluid header-bg py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-4 text-white mb-3 animated slideInDown">
+                Deosai National Park
+            </h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a class="text-white" href="./index.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item text-primary " aria-current="page">
+                        Deosai National Park
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="bg-white rounded shadow p-4">
+          <!-- Park Title and Basic Info -->
+          <div class="row">
+              <!-- Park Description -->
+              <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                  <h2 class="text-primary">Deosai National Park</h2>
+                  <p><strong>Location:</strong> Gilgit-Baltistan, Pakistan</p>
+                  <p><strong>Established:</strong> 1993</p>
+                  <p><strong>Area:</strong> 3,000 square kilometers</p>
+                  <p><strong>Elevation:</strong> 4,114 meters above sea level</p>
+                  <p><strong>Park Features:</strong> Known for its vast plains, alpine meadows, and unique wildlife, Deosai is one of the highest plateaus in the world and a must-visit for nature lovers and trekkers.</p>
+                  <p><strong>Activities:</strong> Trekking, camping, birdwatching, and photography.</p>
+              </div>
+
+  
+              <!-- Park Image -->
+              <div class="col-lg-6 col-md-12 d-flex justify-content-center align-content-center wow fadeInUp" data-wow-delay="0.4s">
+                  <img src="./img/cardimages/Deosai National Park.jpg" alt="Deosai National Park" class="img-fluid">
+              </div>
+          </div>
+  
+          <!-- Park Overview Section -->
+          <h4 class="text-primary mt-4 wow fadeInUp" data-wow-delay="0.4s">Park Overview</h4>
+          <p class="wow fadeInUp" data-wow-delay="0.4s">Deosai National Park, located in the Gilgit-Baltistan region of Pakistan, is a unique high-altitude plateau that stretches across 3,000 square kilometers. Situated at an elevation of 4,114 meters, Deosai is one of the highest national parks in the world. The park is famous for its sweeping grasslands, rolling hills, and stunning landscapes that are home to a rich variety of wildlife, including the Himalayan brown bear and the white-cheeked bulbul. The name "Deosai" translates to "Land of Giants," a fitting description for this vast and serene wilderness.</p>
+  
+          <!-- Conservation Efforts Section -->
+          <h4 class="text-primary wow fadeInUp" data-wow-delay="0.4s">Conservation Efforts</h4>
+          <p class="wow fadeInUp" data-wow-delay="0.4s">Deosai National Park has been designated a protected area to conserve its unique ecosystem and wildlife. Efforts are focused on protecting the endangered Himalayan brown bear and other species that inhabit the plateau. The park’s remote location and challenging terrain require dedicated conservation programs to prevent poaching and ensure the survival of its biodiversity.</p>
+  
+          <!-- Wildlife Section -->
+          <h4 class="text-primary wow fadeInUp" data-wow-delay="0.4s">Wildlife in Deosai National Park</h4>
+          <p class="wow fadeInUp" data-wow-delay="0.4s">Deosai National Park is known for its wide variety of wildlife, including both migratory and resident species. Some of the key animals found in Deosai include:</p>
+  
+          <ul class="wow fadeInUp" data-wow-delay="0.4s">
+              <li><strong>Himalayan Brown Bear:</strong> The park is home to one of the few remaining populations of the Himalayan brown bear, which roams the park's expansive meadows in search of food.</li>
+              <li><strong>Markhor:</strong> The park is also known for its population of markhor goats, an endangered species with unique twisted horns that thrive in the rocky terrain.</li>
+              <li><strong>Wolf:</strong> The park is home to wolves, which prey on smaller mammals like rabbits and hares. They are an important predator species in the park’s food chain.</li>
+              <li><strong>Bird Species:</strong> Deosai is a birdwatcher's paradise, with over 200 species recorded, including the golden eagle, griffon vulture, and the rare white-cheeked bulbul.</li>
+              <li><strong>Red Fox:</strong> The red fox, a common sight in the lower areas of the park, is an opportunistic predator that preys on small mammals and birds.</li>
+              <li><strong>Wildlife in the spring and summer:</strong> During the warmer months, migratory birds flock to Deosai, making it a prime spot for birdwatching.</li>
+          </ul>
+
+          <div class="container">
+            <div class="row g-lg-2">
+              <div class="card-container row g-lg-2" id="animals-section">
+      
+      
+              </div>
+            </div>
+          </div>
+  
+          <p class="wow fadeInUp" data-wow-delay="0.4s">The park’s rich biodiversity, from wild animals to colorful birdlife, contributes to its ecological importance, making it a key location for conservation efforts in the region.</p>
+  
+          <!-- Related Parks Section -->
+          <div class="bg p-3 rounded mt-3 wow fadeInUp" data-wow-delay="0.4s">
+              <strong>Related Parks:</strong>
+              <p>Khunjerab National Park, Ratti Gali Lake National Park, Shandur National Park</p>
+          </div>
+  
+          <!-- Fun Facts Section -->
+          <div class="bg p-3 rounded mt-3 wow fadeInUp" data-wow-delay="0.4s">
+              <strong>Fun Facts:</strong>
+              <ul>
+                  <li>Deosai is one of the highest plateaus in the world, with an average altitude of 4,114 meters.</li>
+                  <li>The park is famous for its vibrant spring flowers, which cover the landscape in a blanket of colors.</li>
+                  <li>During the summer months, the park becomes a paradise for birdwatchers, with over 200 species of birds migrating to the area.</li>
+                  <li>Deosai is home to several endangered species, including the Himalayan brown bear and the markhor goat.</li>
+                  <li>It is one of the few places in the world where you can witness the natural beauty of high-altitude grasslands.</li>
+              </ul>
+          </div>
+  
+          <a href="https://en.wikipedia.org/wiki/Deosai_National_Park" class="btn btn-primary mt-3 wow fadeInUp" data-wow-delay="0.4s">More Info</a>
+      </div>
+  </div>
+  
+
+     <!-- Footer Start -->
+     <div class="container-fluid footer bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <a href="index.html"><img src="img/icon/LOGO.png" alt="logoimg" height="100px" class="mb-3"></a>
+            <div class="d-flex pt-2">
+              <a class="btn btn-outline-light btn-social" href="https://www.twitter.com/"><i
+                  class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/"><i
+                  class="fab fa-youtube"></i></a>
+              <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/"><i
+                  class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-light mb-4">Quick Links</h5>
+            <a class="btn btn-link" href="index.html">National Parks</a>
+            <a class="btn btn-link" href="about.html">About Us</a>
+            <a class="btn btn-link" href="contact.html">Contact Us</a>
+            <a class="btn btn-link" href="parks.html">Parks</a>
+            <a class="btn btn-link" href="animal.html">Animals</a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-light mb-4">Parks</h5>
+            <a class="btn btn-link" href="./Ayubia National Park.html">Ayubia National Park</a>
+            <a class="btn btn-link" href="./Chitral National Park.html">Chitral National Park</a>
+            <a class="btn btn-link" href="./Deosai National Park.html">Deosai National Park</a>
+            <a class="btn btn-link" href="./Hingol National Park.html">Hingol National Park</a>
+            <a class="btn btn-link" href="./parks.html">Explore More</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-12 text-center text-md-center mb-3 mb-md-0">
+            &copy; <a class="border-bottom" href="./index.html">National Parks</a>, All
+            Right Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+  
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./js/tiketModal.js"></script>
+<script>
+      const animals = [
+
+      {
+        img: "img/animalsimg/animal-7.jpg",
+        alt: "Golden Jackal",
+        title: "Golden Jackal",
+        scientificName: "Canis aureus",
+        habitat: "Savannas, grasslands, and woodlands in Africa and Asia",
+        diet: "Small mammals, birds, fruits, and carrion",
+        conservationStatus: "Least Concern",
+        lifespan: "10-12 years in the wild",
+        info: "Golden Jackals are highly adaptable canids known for their resourcefulness and social behavior.",
+        Longdescription: "Golden Jackals are opportunistic feeders that thrive in diverse habitats. They are often observed in pairs or small family groups.",
+        RealtedParks: "Bandhavgarh National Park, Serengeti National Park",
+        funFacts: [
+          "Golden Jackals can communicate through over a dozen different vocalizations.",
+          "They are capable of covering long distances while hunting."
+        ],
+        downloadLink: "https://www.mediafire.com/file/9ds05z9bttbuc91/Golden_Jackal.docx/file"
+      },
+      {
+    img: "img/animalsimg/animal-10.jpg",
+    alt: "Brown Bear",
+    title: "Brown Bear",
+    scientificName: "Ursus arctos",
+    habitat: "Forests, mountains, and tundras across North America, Europe, and Asia",
+    diet: "Berries, fish, plants, and small mammals",
+    conservationStatus: "Least Concern",
+    lifespan: "20-30 years in the wild",
+    info: "Brown Bears are large omnivorous mammals with a wide distribution across the northern hemisphere.",
+    Longdescription: "Brown Bears are highly adaptable animals known for their strength and hibernation habits. They play a significant role in seed dispersal.",
+    RealtedParks: "Yellowstone National Park, Katmai National Park",
+    funFacts: [
+      "Brown Bears can consume up to 90 pounds of food a day before hibernation.",
+      "They have a keen sense of smell, even better than that of dogs."
+    ],
+    downloadLink: "https://www.mediafire.com/file/nug3r8v3zaw2q8p/Himalayan_Brown_Bear.docx/file"
+  },
+
+  {
+    img: "img/animalsimg/animal-5.jpg",
+    alt: "Crested Grebe",
+    title: "Crested Grebe",
+    scientificName: "Podiceps cristatus",
+    habitat: "Lakes, rivers, and wetlands across Europe and Asia",
+    diet: "Fish, aquatic insects, and small invertebrates",
+    conservationStatus: "Least Concern",
+    lifespan: "10-15 years in the wild",
+    info: "The Crested Grebe is a graceful waterbird, famed for its elaborate courtship rituals and striking breeding plumage.",
+    Longdescription: "Crested Grebes are excellent swimmers and divers, primarily feeding underwater. During the breeding season, their intricate dances showcase mutual affection.",
+    RealtedParks: "Lake District National Park, Cairngorms National Park",
+    funFacts: [
+      "They are among the few birds that perform ritualistic mating dances.",
+      "Crested Grebes’ chicks often ride on their parents’ backs."
+    ],
+    downloadLink: "https://www.mediafire.com/file/lv4sok8nvxfyxb9/Great_Crested_Grebe.docx/file"
+  },
+      {
+        img: "img/animalsimg/animal-1.jpg",
+        alt: "Gray Wolf",
+        title: "Gray Wolf",
+        scientificName: "Canis lupus",
+        habitat: "Forests, wetlands, and coastal regions in North America",
+        diet: "Large mammals like deer, elk, and smaller prey such as rabbits and birds",
+        conservationStatus: "Least Concern",
+        lifespan: "6-8 years in the wild, up to 13 years in captivity",
+        info: "The Gray Wolf is a highly intelligent and social predator known for its pack behavior and vital role in ecosystems.",
+        Longdescription: "Gray Wolves are apex predators, often living in structured packs. They are known for their strong jaws, acute senses, and significant ecological impact as keystone species.",
+        RealtedParks: "Yellowstone National Park, Denali National Park",
+        funFacts: [
+          "A wolf’s howl can travel up to 10 miles in open terrain.",
+          "Gray Wolves can run at speeds of up to 37 mph during a chase."
+        ],
+        downloadLink: "https://www.mediafire.com/file/j9on487tps642u5/GrayWolf.docx/file"
+      },
+    ];
+
+ 
+    function generateCards(filteredAnimals) {
+      const container = document.querySelector("#animals-section");
+      container.innerHTML = "";
+
+      if (filteredAnimals.length === 0) {
+        container.innerHTML = "<p class='text-muted text-center'>No animals found matching your search.</p>";
+        return;
+      }
+
+      filteredAnimals.forEach((animal) => {
+        const card = document.createElement("div");
+        card.className = "col-12 col-md-6 col-lg-6 mb-4 wow fadeInUp";
+        card.innerHTML = `
+      <div class="card shadow-sm border-0">
+        <img src="${animal.img}" alt="${animal.alt}" class="card-img-top">
+        <div class="card-body">
+          <h3 class="card-title">${animal.title}</h3>
+          <p class="card-text">${animal.info}</p>
+     <a href="animal-detail.html?title=${encodeURIComponent(animal.title)}&info=${encodeURIComponent(animal.info)}&img=${encodeURIComponent(animal.img)}&Longdescription=${encodeURIComponent(animal.Longdescription)}&RealtedParks=${encodeURIComponent(animal.RealtedParks)}&scientificName=${encodeURIComponent(animal.scientificName)}&habitat=${encodeURIComponent(animal.habitat)}&diet=${encodeURIComponent(animal.diet)}&conservationStatus=${encodeURIComponent(animal.conservationStatus)}&lifespan=${encodeURIComponent(animal.lifespan)}&funFacts=${encodeURIComponent(JSON.stringify(animal.funFacts))}&downloadLink=${encodeURIComponent(animal.downloadLink)}" class="btn btn-sm btn-outline-secondary">
+  <i class="fas fa-book-reader"></i> Read More
+</a>
+
+        </div>
+      </div>
+    `;
+        container.appendChild(card);
+      });
+    }
+
+    generateCards(animals);
+</script>
+</body>
+
+</html>

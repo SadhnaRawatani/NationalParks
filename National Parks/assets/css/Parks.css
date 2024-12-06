@@ -1,0 +1,79 @@
+        /* Park detail card */
+        .park-detail {
+            display: block; /* Change to block to stack image and text vertically */
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .park-detail img {
+            border-radius: 8px;
+            width: 100%; /* Full width image */
+            height: auto; /* Let the height adjust based on image aspect ratio */
+            object-fit: cover;
+            margin-bottom: 20px; /* Adds spacing below the image */
+        }
+
+        .park-detail .text {
+            max-width: 800px;
+        }
+
+        .park-detail h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #da5530;
+        }
+
+        .park-detail p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .related-parks,
+        .fun-facts {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .related-parks p, .fun-facts ul {
+            font-size: 1rem;
+        }
+
+        .fun-facts ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .park-image {
+            height: 600px;
+            width: 100%;
+        }
+
+        /* Alert fallback styling */
+        .alert {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #fff;
+            background: linear-gradient(135deg, #da5530, #f56a43);
+            border: none;
+            border-radius: 10px;
+            padding: 1.5rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .bg{
+            background-color:rgb(255, 248, 244);
+          }
+          .img-fluid{
+            border-radius: 10px;
+            transition: all 0.5s ease-in-out 0s;
+          
+          }
+          .img-fluid:hover{
+            transform: scale(1.03);
+            box-shadow: 0 5px 10px rgb(43, 43, 43);
+          }
